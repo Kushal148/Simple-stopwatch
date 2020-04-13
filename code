@@ -1,0 +1,33 @@
+#include <iostream>
+#include<ctime>
+#include<string>
+#include<conio.h>
+using namespace std;
+int main()
+{
+	time_t start, finish;
+	int hr=00, min=00, sec=00;
+	cout << "hr: 00  "<< "min: 00  " << "sec: 00 \n\n";
+	cout << "press any key to start: ";
+	_getch();
+	time(&start);
+	cout << "\npress any key to stop: " ;
+	_getch();
+	time(&finish);
+	int time = difftime(finish, start);
+	if (time > 3599) {
+		hr = time / 3600;
+		min = (time % 3600)/60;
+		sec = (time % 3600) - (min * 60); 
+	} 
+	else if (time > 59) {
+		 min = time / 60;
+		 sec = time % 60;
+	}
+	else {
+		sec = time;
+	}
+	cout<< "\n\nTime: hr: "<<hr<<" min: "<< min<<" sec: "<< sec;
+	return 0;
+
+}
